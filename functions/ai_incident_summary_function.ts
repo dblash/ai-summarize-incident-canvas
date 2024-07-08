@@ -4,16 +4,16 @@ import { DefineFunction, Schema, SlackFunction } from "deno-slack-sdk/mod.ts";
 export const AIIncidentSummaryFunction = DefineFunction({
   callback_id: "ai_incident_summary",
   title: "generate a summary of an incident",
-  description: "Check internal database for a user's mobile information.",
+  description: "Outputs the ai_incident_summary and ai_incident_canvas_title variables",
   source_file: "functions/ai_incident_summary_function.ts",
   input_parameters: {
     properties: {
       timestamp_of_original_message: {
-        type: "CHANGE-ME",
+        type: ,
         description: "details about the incident",
       },
       channel_id: {
-        type: "CHANGE-ME",
+        type: ,
         description: "The channel that the email was posted.",
       },
     },
@@ -22,11 +22,11 @@ export const AIIncidentSummaryFunction = DefineFunction({
   output_parameters: {
     properties: {
       ai_incident_summary: {
-        type: "CHANGE-ME",
+        type: ,
         description: "An ai summary of the incident",
       },
       ai_incident_canvas_title: {
-        type: "CHANGE-ME",
+        type: ,
         description: "A title for the incident",
       },
     },
@@ -36,7 +36,7 @@ export const AIIncidentSummaryFunction = DefineFunction({
 
 // Function logic
 export default SlackFunction(
-  "<CHANGE-ME TO AI INCIDENT FUNCTION DEFINTION>",
+  "<CHANGE-ME TO AI INCIDENT FUNCTION DEFINTION variable>",
   /*
   client: easily access Slack APIS
   inputs: use the input object to gather information from the previous step
@@ -50,7 +50,7 @@ export default SlackFunction(
     try {
       // Get the JSON for the message that was reacted to
       const messageHistoryResponse = await client.conversations.history({
-        channel: "<Use channel id from inputs>",
+        channel: Use channel id from inputs,
         oldest: inputs.timestamp_of_original_message,
         inclusive: true,
         limit: 1,
@@ -65,7 +65,7 @@ export default SlackFunction(
     try {
       // create an OpenAI instance to easily call OpenAI APIs
       const OPEN_AI = new OpenAI({
-        apiKey: "<use your API key from your .env file>",
+        apiKey: use your API key from your .env file
       });
 
       const chatCompletion = await OPEN_AI.chat.completions.create({
@@ -100,7 +100,7 @@ export default SlackFunction(
               Item 2
               Item 3`,
           },
-          { "role": "user", "content": `<use the original message variable>` },
+          { "role": "user", "content": use the original message variable },
         ],
         model: "gpt-3.5-turbo",
       });
@@ -127,9 +127,10 @@ export default SlackFunction(
 
     return {
       outputs: {
-        ai_incident_canvas_title: "<add the regex title variable>",
-        ai_incident_summary: "<add the ai generated summary>",
+        ai_incident_canvas_title: add the regex title variable,
+        ai_incident_summary: add the ai generated summary,
       },
     };
   },
 );
+
