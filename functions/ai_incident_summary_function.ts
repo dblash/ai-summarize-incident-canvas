@@ -9,28 +9,28 @@ export const AIIncidentSummaryFunction = DefineFunction({
   input_parameters: {
     properties: {
       timestamp_of_original_message: {
-        type: ,
+        type: Schema.types.string,
         description: "details about the incident",
       },
       channel_id: {
-        type: ,
+        type: Schema.types.string,
         description: "The channel that the email was posted.",
       },
     },
-    required: ["", ""],
+    required: ["timestamp_of_original_message", "channel_id"],
   },
   output_parameters: {
     properties: {
       ai_incident_summary: {
-        type: ,
+        type: Schema.types.string,
         description: "An ai summary of the incident",
       },
       ai_incident_canvas_title: {
-        type: ,
+        type: Schema.types.string,
         description: "A title for the incident",
       },
     },
-    required: ["", ""],
+    required: ["ai_incident_summary", "ai_incident_canvas_title"],
   },
 });
 
